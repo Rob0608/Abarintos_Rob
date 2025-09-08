@@ -1,0 +1,83 @@
+
+:root {
+  --primary: #ff4655;
+  --primary-dark: #e03444;
+  --bg: #0f1923;
+  --card-bg: #1c252f;
+  --text: #ece8e1;
+  --muted: #8b8b8b;
+  --radius: 8px;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--text);
+}
+
+form {
+  background: var(--card-bg);
+  padding: 30px 25px;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  width: 100%;
+  max-width: 320px; /* ✅ mas maliit at sakto */
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+label {
+  display: none; /* ✅ optional, mas clean like Valorant login style */
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 10px 3px;
+  margin-bottom: 12px;
+  border: 1px solid #2e3a46;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  background: #101823;
+  color: var(--text);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(255, 70, 85, 0.4);
+  outline: none;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: var(--primary);
+  border: none;
+  border-radius: var(--radius);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+input[type="submit"]:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
