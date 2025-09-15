@@ -1,12 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Showdata</title>
-    
-    <style>
-       body {
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Showdata</title>
+  
+  <style>
+    body {
       font-family: 'Segoe UI', Roboto, Arial, sans-serif;
       background: #0f1923; /* Valorant dark bg */
       color: #fff;
@@ -90,103 +90,102 @@
       background: #e63946;
     }
 
-    a[href*="create"] {
-      margin-top: 20px;
-      background: #10b981; /* Teal for Create */
-      color: #fff;
-      padding: 10px 16px;
+    /* ✅ Styled Create Record button */
+    .create-btn {
+      margin-top: 25px;
+      background: #ff4655;
+      color: #0f1923;
+      padding: 12px 20px;
       border-radius: 8px;
-      font-size: 0.95rem;
-      font-weight: 600;
+      font-size: 1rem;
+      font-weight: 700;
+      text-transform: uppercase;
       text-decoration: none;
-      transition: background 0.2s;
+      letter-spacing: 1px;
+      transition: all 0.3s ease;
+      border: 2px solid #ff4655;
+      box-shadow: 0 0 12px rgba(255, 70, 85, 0.6);
     }
 
-    a[href*="create"]:hover {
-      background: #059669;
+    .create-btn:hover {
+      background: #0f1923;
+      color: #ff4655;
+      box-shadow: 0 0 20px #ff4655, 0 0 40px #ff4655 inset;
+      transform: scale(1.05);
     }
-        <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Showdata</title>
-    <link rel="stylesheet" href="<?=base_url();?>public/css/style.css">
-    <style>
-        /* Valorant-inspired pagination style */
-        /* ✅ Pagination layout fix */
-.pagination {
-    margin: 20px 0;
-    display: flex;
-    justify-content: center;
-    gap: 8px;
-    list-style: none;
-    padding: 0;
-}
 
-.pagination li {
-    display: inline-block;
-}
+    /* ✅ Pagination */
+    .pagination {
+      margin: 20px 0;
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      list-style: none;
+      padding: 0;
+    }
 
-.pagination a, 
-.pagination strong {
-    padding: 8px 14px;
-    border: 2px solid #ff4655;
-    background: #0f1923;
-    color: #fff;
-    text-decoration: none;
-    font-weight: bold;
-    border-radius: 6px;
-    transition: all 0.3s ease;
-    font-family: 'Valorant', sans-serif;
-}
+    .pagination li {
+      display: inline-block;
+    }
 
-.pagination a:hover {
-    background: #ff4655;
-    color: #0f1923;
-    box-shadow: 0 0 10px #ff4655;
-}
+    .pagination a, 
+    .pagination strong {
+      padding: 8px 14px;
+      border: 2px solid #ff4655;
+      background: #0f1923;
+      color: #fff;
+      text-decoration: none;
+      font-weight: bold;
+      border-radius: 6px;
+      transition: all 0.3s ease;
+    }
 
-.pagination strong {
-    background: #ff4655;
-    color: #0f1923;
-    cursor: default;
-}
+    .pagination a:hover {
+      background: #ff4655;
+      color: #0f1923;
+      box-shadow: 0 0 10px #ff4655;
+    }
 
+    .pagination strong {
+      background: #ff4655;
+      color: #0f1923;
+      cursor: default;
+    }
 
-        /* Search bar styling */
-        .search-box {
-            margin-bottom: 15px;
-            text-align: right;
-        }
+    /* ✅ Search bar styling */
+    .search-box {
+      margin-bottom: 15px;
+      text-align: right;
+      width: 90%;
+    }
 
-        .search-box input[type="text"] {
-            padding: 6px 12px;
-            border: 2px solid #ff4655;
-            border-radius: 6px;
-            background: #0f1923;
-            color: #fff;
-            outline: none;
-        }
+    .search-box input[type="text"] {
+      padding: 6px 12px;
+      border: 2px solid #ff4655;
+      border-radius: 6px;
+      background: #0f1923;
+      color: #fff;
+      outline: none;
+    }
 
-        .search-box button {
-            padding: 6px 14px;
-            margin-left: 5px;
-            background: #ff4655;
-            color: #0f1923;
-            font-weight: bold;
-            border: none;
-            border-radius: 6px;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
+    .search-box button {
+      padding: 6px 14px;
+      margin-left: 5px;
+      background: #ff4655;
+      color: #0f1923;
+      font-weight: bold;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+    }
 
-        .search-box button:hover {
-            background: #fff;
-            color: #ff4655;
-            box-shadow: 0 0 10px #ff4655;
-        }
-    </style>
+    .search-box button:hover {
+      background: #fff;
+      color: #ff4655;
+      box-shadow: 0 0 10px #ff4655;
+    }
+  </style>
 </head>
 <body>
   <h1>Showdata</h1>
@@ -230,13 +229,10 @@
   </table>
 
   <!-- ✅ Pagination Links -->
-<?php if (!empty($page)): ?>
+  <?php if (!empty($page)): ?>
     <ul class="pagination">
         <?= $page; ?>
     </ul>
-<?php endif; ?>
+  <?php endif; ?>
 
-
-  <a href="<?=site_url('/');?>">+ Create Record</a>
-</body>
-</html>
+  <!-- ✅ Valorant-st
