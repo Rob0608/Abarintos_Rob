@@ -235,4 +235,6 @@
     </ul>
   <?php endif; ?>
 
-  <!-- ✅ Valorant-st
+ 
+  <!-- ✅ Valorant-styled Create Record button -->
+  <a href="<?=site_url('/');?>" class="create-btn">+ Create Record</a>
