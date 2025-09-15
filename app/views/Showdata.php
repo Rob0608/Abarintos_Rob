@@ -237,6 +237,6 @@
 <?php endif; ?>
 
 
-  <a href="<?=site_url('user/create');?>">+ Create Record</a>
+  <a href="<?=site_url('/');?>">+ Create Record</a>
 </body>
 </html>
