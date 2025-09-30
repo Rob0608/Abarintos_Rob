@@ -4,13 +4,14 @@
     </IfModule>
 
     RewriteEngine On
-
-    # Kung app naka-install sa subfolder, palitan mo ang base path dito
     RewriteBase /
 
-    # Redirect index.php requests
-    RewriteCond %{REQUEST_URI} !^/index\.php
-    RewriteCond %{REQUEST_FILENAME} !-f
+    # Redirect Trailing Slashes
     RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteRule ^(.*)/$ /$1 [L,R=301]
+
+    # Handle Front Controller
+    RewriteCond %{REQUEST_FILENAME} !-d
+    RewriteCond %{REQUEST_FILENAME} !-f
     RewriteRule ^ index.php [L]
 </IfModule>
