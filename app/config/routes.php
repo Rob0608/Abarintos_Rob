@@ -46,9 +46,26 @@ defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
 //$router->get('/', 'Welcome::index');
 //$router->get('/about', 'Welcome::about');
 //$router->get('/user/profile/{username}/{name}', 'UserController::profile');
-$router->get('/user/show', 'UserController::show');
-$router->match('/', 'UserController::create', ['GET', 'POST']);
+
+
+// Default route: Registration page
+$router->match('/', 'AuthController::register', ['GET','POST']);
+
+$router->get('/user/show', 'UserController::show'); 
+
+$router->match('/user/create', 'UserController::create', ['GET', 'POST']);
+
 $router->match('/user/update/{id}', 'UserController::update', ['GET', 'POST']);
+
 $router->get('/user/delete/{id}', 'UserController::delete');
-$router->get('user/soft-delete/{id}', 'UserController::soft_delete');
+
+//$router->get('/user/soft-delete/{id}', 'UserController::soft_delete');
+
 $router->get('/user/restore/{id}', 'UserController::restore');
+
+// ===================== AUTH =====================
+$router->match('/auth/login', 'AuthController::login', ['GET','POST']);
+$router->get('/auth/logout', 'AuthController::logout');
+$router->get('/auth/dashboard', 'AuthController::dashboard');
+
+

@@ -1,3 +1,21 @@
+<?php
+defined('PREVENT_DIRECT_ACCESS') OR exit('No direct script access allowed');
+
+// ✅ Start session kung hindi pa naka-start
+if (session_status() === PHP_SESSION_NONE) {
+    session_start();
+}
+
+// ✅ Redirect kung hindi naka-login
+if (!isset($_SESSION['user_id'])) {
+    header("Location: " . site_url('auth/login'));
+    exit;
+}
+
+// Para maiwasan notice error kung walang role
+$role = $_SESSION['role'] ?? null;
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -81,12 +99,12 @@
       background: #2563eb;
     }
 
-    a[href*="soft-delete"] {
+    a[href*="delete"] {
       background: #ff4655; /* Valorant red for Delete */
       color: #fff;
     }
 
-    a[href*="soft-delete"]:hover {
+    a[href*="delete"]:hover {
       background: #e63946;
     }
 
@@ -205,7 +223,9 @@
       <th>Firstname</th>
       <th>Email</th>
       <th>Role</th>
-      <th>Action</th>
+      <?php if ($role === 'admin'): ?>
+        <th>Action</th>
+      <?php endif; ?>
     </tr>
     <?php if (!empty($students)): ?>
         <?php foreach(html_escape($students) as $student): ?>
@@ -215,10 +235,12 @@
           <td><?=$student['first_name'];?></td>
           <td><?=$student['email'];?></td>
           <td><?=$student['Role'];?></td>
+          <?php if ($role === 'admin'): ?>
           <td>
             <a href="<?=site_url('user/update/'.$student['id']);?>">Update</a>
-            <a href="<?=site_url('user/soft-delete/'.$student['id']);?>">Delete</a>
+            <a href="<?=site_url('user/delete/'.$student['id']);?>">Delete</a>
           </td>
+          <?php endif; ?>
         </tr>
         <?php endforeach; ?>
     <?php else: ?>
@@ -235,6 +257,13 @@
     </ul>
   <?php endif; ?>
 
- 
-  <!-- ✅ Valorant-styled Create Record button -->
-  <a href="<?=site_url('/');?>" class="create-btn">+ Create Record</a>
+  <!-- ✅ Valorant-styled Create Record button (admin only) -->
+  <?php if ($role === 'admin'): ?>
+    <a href="<?=site_url('user/create');?>" class="create-btn">+ Create Record</a>
+  <?php endif; ?>
+
+  <!-- ✅ Logout button -->
+  <a href="<?=site_url('auth/logout');?>" class="create-btn" style="margin-top:15px; background:#e63946; color:#fff;">Logout</a>
+
+</body>
+</html>

@@ -5,10 +5,14 @@ class UserModel extends Model {
     protected $table = 'students';
     protected $primary_key = 'id';
 
+
     public function __construct()
     {
         parent::__construct();
     }
+
+
+    
 
     // ✅ Pagination function
     public function page($q = '', $records_per_page = null, $page = null)
