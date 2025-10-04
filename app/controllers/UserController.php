@@ -69,7 +69,7 @@ class UserController extends Controller {
             $firstname= $this->io->post('first_name');
             $lastname= $this->io->post('last_name');
             $email= $this->io->post('email');
-             $role= $this->io->post('Role');
+             $role= $this->io->post('role');
 
             $data = array(
                 'first_name' => $firstname,
@@ -106,7 +106,7 @@ class UserController extends Controller {
             $firstname= $this->io->post('first_name');
             $lastname= $this->io->post('last_name');
             $email= $this->io->post('email');
-            $role= $this->io->post('Role');
+            $role= $this->io->post('role');
             
 
             $data = array(
