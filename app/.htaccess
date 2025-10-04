@@ -4,10 +4,10 @@ AddDefaultCharset UTF-8
     RewriteEngine On
     RewriteBase /
 
-    # Skip existing files and folders
+    # Skip existing files and directories
     RewriteCond %{REQUEST_FILENAME} !-f
     RewriteCond %{REQUEST_FILENAME} !-d
 
-    # Route all requests to index.php
-    RewriteRule ^(.*)$ index.php/$1 [L,QSA]
+    # Route everything to index.php
+    RewriteRule ^(.*)$ index.php?/$1 [L,QSA]
 </IfModule>
