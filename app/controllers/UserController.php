@@ -54,7 +54,7 @@ class UserController extends Controller {
         );
         $data['page'] = $this->pagination->paginate();
 
-        $this->call->view('students/Showdata', $data);
+        $this->call->view('students/show', $data);
     }
 
     function create(){
@@ -82,7 +82,7 @@ class UserController extends Controller {
                 echo 'Error creating student.';
             }
         } else {
-            $this->call->view('students/Create');
+            $this->call->view('students/create');
         }
     }
 
@@ -118,7 +118,7 @@ class UserController extends Controller {
             }
         } else {
             $data['student'] = $students;
-            $this->call->view('students/Update', $data);
+            $this->call->view('students/update', $data);
         }
     }
      function delete($id){
