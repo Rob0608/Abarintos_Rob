@@ -64,9 +64,9 @@ $router->get('user/delete/{id}', 'UserController::delete');
 $router->get('user/restore/{id}', 'UserController::restore');
 
 // ===================== AUTH =====================
-$router->match('/auth/login', 'AuthController::login', ['GET','POST']);
-$router->get('/auth/logout', 'AuthController::logout');
-$router->get('/auth/dashboard', 'AuthController::dashboard');
+$router->match('auth/login', 'AuthController::login', ['GET','POST']);
+$router->get('auth/logout', 'AuthController::logout');
+$router->get('auth/dashboard', 'AuthController::dashboard');
 
 
 
