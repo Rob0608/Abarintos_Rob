@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Create User</title>
+  <style>
+:root {
+  --primary: #ff4655;
+  --primary-dark: #e03444;
+  --bg: #0f1923;
+  --card-bg: #1c252f;
+  --text: #ece8e1;
+  --muted: #8b8b8b;
+  --radius: 8px;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--text);
+}
+
+form {
+  background: var(--card-bg);
+  padding: 35px 28px;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  width: 100%;
+  max-width: 340px;
+  text-align: center;
+  transition: transform 0.2s ease-in-out;
+}
+
+form:hover {
+  transform: scale(1.02);
+}
+
+h1 {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 22px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+input[type="text"],
+input[type="email"],
+select {
+  width: 100%;
+  padding: 12px 10px;
+  margin-bottom: 15px;
+  border: 1px solid #2e3a46;
+  border-radius: var(--radius);
+  font-size: 0.95rem;
+  background: #101823;
+  color: var(--text);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(255, 70, 85, 0.4);
+  outline: none;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 14px;
+  background: var(--primary);
+  border: none;
+  border-radius: var(--radius);
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+input[type="submit"]:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+  </style>
+</head>
+<body>
+  <form action="<?=site_url('students/create');?>" method="post">
+    <h1>Create User</h1>
+    <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
+    <input type="text" id="first_name" name="first_name" placeholder="First Name" required>
+    <input type="email" id="email" name="email" placeholder="Email" required>
+    
+    <!-- Dropdown para mas safe kaysa free text -->
+    <select id="role" name="role" required>
+      <option value="" disabled selected>Select Role</option>
+      <option value="A Site">A Site</option>
+      <option value="B Site">B Site</option>
+      <option value="C Site">C Site</option>
+    </select>
+
+    <input type="submit" value="Submit">
+  </form>
+</body>
+</html>

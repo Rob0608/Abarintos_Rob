@@ -1,0 +1,184 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Update</title>
+     
+     <style>
+      /* style2.css - Valorant Theme */
+
+:root {
+  --primary: #ff4655; /* Valorant red */
+  --primary-dark: #e03444;
+  --bg: #0f1923;      /* Dark Valorant background */
+  --card-bg: #1c252f;
+  --text: #ece8e1;
+  --muted: #8b8b8b;
+  --radius: 8px;
+}
+
+body {
+  font-family: "Segoe UI", Roboto, Arial, sans-serif;
+  background: var(--bg);
+  margin: 0;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  color: var(--text);
+}
+
+form {
+  background: var(--card-bg);
+  padding: 30px 25px;
+  border-radius: var(--radius);
+  box-shadow: 0 6px 20px rgba(0,0,0,0.6);
+  width: 100%;
+  max-width: 340px; /* compact size */
+  text-align: center;
+}
+
+h1 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: var(--primary);
+  margin-bottom: 20px;
+  text-transform: uppercase;
+}
+
+label {
+  display: block;
+  text-align: left;
+  margin-bottom: 5px;
+  font-size: 0.8rem;
+  font-weight: 600;
+  color: var(--muted);
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+input[type="text"],
+input[type="email"] {
+  width: 100%;
+  padding: 10px 2px;
+  margin-bottom: 14px;
+  border: 1px solid #2e3a46;
+  border-radius: var(--radius);
+  font-size: 0.9rem;
+  background: #101823;
+  color: var(--text);
+  transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 2px rgba(255, 70, 85, 0.4);
+  outline: none;
+}
+
+input[type="submit"] {
+  width: 100%;
+  padding: 12px;
+  background: var(--primary);
+  border: none;
+  border-radius: var(--radius);
+  color: #fff;
+  font-size: 0.9rem;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background 0.2s, transform 0.1s;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+input[type="submit"]:hover {
+  background: var(--primary-dark);
+  transform: translateY(-2px);
+}
+
+input[type="submit"]:active {
+  transform: scale(0.98);
+}
+
+    body {
+      margin: 0;
+      height: 100vh;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      background-color: #0f172a; /* dark background */
+      font-family: Arial, sans-serif;
+      color: #fff;
+    }
+
+    h1 {
+      color: #f43f5e; /* red-pink */
+      margin-bottom: 20px;
+    }
+
+    .form-container {
+      background: #1e293b;
+      padding: 30px;
+      border-radius: 10px;
+      box-shadow: 0px 4px 12px rgba(0,0,0,0.5);
+      width: 350px;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 5px;
+      font-size: 12px;
+      text-transform: uppercase;
+      color: #94a3b8;
+    }
+
+    input {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 15px;
+      border-radius: 5px;
+      border: none;
+      background: #0f172a;
+      color: white;
+    }
+
+    button {
+      width: 100%;
+      padding: 12px;
+      background-color: #f43f5e;
+      border: none;
+      border-radius: 8px;
+      color: white;
+      font-weight: bold;
+      cursor: pointer;
+      transition: background 0.3s ease;
+    }
+
+    button:hover {
+      background-color: #e11d48;
+    }
+  </style>
+</head>
+<body>
+    <h1>Welcome to Update View</h1>
+    <form action="<?=site_url('students/update/'.$student['id']);?>" method="post">
+        <label for="last_name">Last Name:</label><br>
+        <input type="text" id="last_name" name="last_name" value="<?=html_escape($student['last_name']);?>"><br>
+        
+        <label for="first_name">First Name:</label><br>
+        <input type="text" id="first_name" name="first_name" value="<?=html_escape($student['first_name']);?>"><br>
+        
+        <label for="email">Email:</label><br>
+        <input type="email" id="email" name="email" value="<?=html_escape($student['email']);?>"><br>
+        
+        <label for="role">Role:</label><br>
+        <input type="text" id="role" name="role" value="<?=html_escape($student['Role']);?>"><br>
+        
+        <input type="submit" value="Submit">
+    </form>
+
+</body>
+</html>
