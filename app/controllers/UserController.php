@@ -8,7 +8,7 @@ class UserController extends Controller {
 
         //$this->call->model('UserModel');
         $this->call->library('pagination'); 
-        $this->call->library('auth'); // ✅ Load Auth library
+        $this->call->library('auth'); 
 
         // ✅ Require login
         if (!$this->auth->is_logged_in()) {
