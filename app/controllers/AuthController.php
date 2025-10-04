@@ -17,11 +17,11 @@ class AuthController extends Controller
             $role     = $this->io->post('role') ?? 'user';
 
             if ($this->auth->register($username, $password, $role)) {
-                redirect('auth/login'); // after register → login
+                redirect('/auth/login'); // after register → login
             }
         }
 
-        $this->call->view('auth/register');
+        $this->call->view('/auth/register');
     }
 
     public function login()
@@ -33,23 +33,23 @@ class AuthController extends Controller
             if ($this->auth->login($username, $password)) {
                 // check role and redirect accordingly
                 if ($this->auth->has_role('admin')) {
-                    redirect('user/show'); // ✅ admin full access
+                    redirect('/user/show'); // ✅ admin full access
                 } else {
-                    redirect('auth/dashboard'); // ✅ normal user
+                    redirect('/auth/dashboard'); // ✅ normal user
                 }
             } else {
                 echo 'Login failed!';
             }
         }
 
-        $this->call->view('auth/login');
+        $this->call->view('/auth/login');
     }
 
     public function dashboard()
     {
         // ✅ Require login
         if (!$this->auth->is_logged_in()) {
-            redirect('auth/login');
+            redirect('/auth/login');
         }
 
         $page = $this->io->get('page') ?? 1;
@@ -75,7 +75,7 @@ class AuthController extends Controller
             $total_rows,
             $records_per_page,
             $page,
-            site_url('auth/dashboard') . '?q=' . urlencode($q)
+            site_url('/auth/dashboard') . '?q=' . urlencode($q)
         );
 
         $data['page'] = $this->pagination->paginate();
@@ -87,6 +87,6 @@ class AuthController extends Controller
     public function logout()
     {
         $this->auth->logout();
-        redirect('auth/login');
+        redirect('/auth/login');
     }
 }

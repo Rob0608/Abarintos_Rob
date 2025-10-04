@@ -11,7 +11,7 @@ class UserController extends Controller {
 
         // ✅ Require login
         if (!$this->auth->is_logged_in()) {
-            redirect('auth/login');
+            redirect('/auth/login');
         }
     }
 
@@ -52,7 +52,7 @@ class UserController extends Controller {
             $total_rows,
             $records_per_page,
             $page,
-            site_url('user/show') . '?q=' . urlencode($q)
+            site_url('/user/show') . '?q=' . urlencode($q)
         );
         $data['page'] = $this->pagination->paginate();
 
@@ -63,7 +63,7 @@ class UserController extends Controller {
     {
         // ✅ Admin only
         if ($_SESSION['role'] !== 'admin') {
-            redirect(site_url('auth/dashboard'));
+            redirect(site_url('/auth/dashboard'));
             exit;
         }
 
@@ -81,7 +81,7 @@ class UserController extends Controller {
             ];
 
             if ($this->UserModel->insert($data)) {
-                redirect('user/show');
+                redirect('/user/show');
             } else {
                 echo 'Failed to insert data.';
             }
@@ -93,7 +93,7 @@ class UserController extends Controller {
      function update($id) {
     if ($_SESSION['role'] !== 'admin') {
         // redirect regular users to the dashboard
-        redirect(site_url('auth/dashboard'));
+        redirect(site_url('/auth/dashboard'));
         exit;
     }
 
@@ -117,7 +117,7 @@ class UserController extends Controller {
         );
 
         if ($this->UserModel->update($id, $data)) {
-            redirect(site_url('user/show'));
+            redirect(site_url('/user/show'));
         } else {
             echo 'Error updating student.';
         }
@@ -131,12 +131,12 @@ class UserController extends Controller {
     {
         // ✅ Admin only
         if ($_SESSION['role'] !== 'admin') {
-            redirect(site_url('auth/dashboard'));
+            redirect(site_url('/auth/dashboard'));
             exit;
         }
 
         if ($this->UserModel->delete($id)) {
-            redirect('user/show');
+            redirect('/user/show');
         } else {
             echo 'Failed to delete data.';
         }
@@ -162,12 +162,12 @@ class UserController extends Controller {
     {
         // ✅ Admin only
         if ($_SESSION['role'] !== 'admin') {
-            redirect(site_url('auth/dashboard'));
+            redirect(site_url('/auth/dashboard'));
             exit;
         }
 
         if ($this->UserModel->restore($id)) {
-            redirect('user/show');
+            redirect('/user/show');
         } else {
             echo 'Failed to restore data.';
         }
