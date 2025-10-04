@@ -164,7 +164,7 @@ input[type="submit"]:active {
 </head>
 <body>
     <h1>Welcome to Update View</h1>
-    <form action="<?=site_url('user/update/'.$student['id']);?>" method="post">
+    <form action="<?=site_url('students/update/'.$student['id']);?>" method="post">
         <label for="last_name">Last Name:</label><br>
         <input type="text" id="last_name" name="last_name" value="<?=html_escape($student['last_name']);?>"><br>
         

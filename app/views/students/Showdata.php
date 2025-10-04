@@ -210,7 +210,7 @@ $role = $_SESSION['role'] ?? null;
 
   <!-- ✅ Search form -->
   <div class="search-box">
-      <form method="get" action="<?=site_url('user/show');?>">
+      <form method="get" action="<?=site_url('/students');?>">
           <input type="text" name="q" placeholder="Search..." value="<?=isset($_GET['q']) ? html_escape($_GET['q']) : '';?>">
           <button type="submit">Search</button>
       </form>
@@ -237,8 +237,8 @@ $role = $_SESSION['role'] ?? null;
           <td><?=$student['Role'];?></td>
           <?php if ($role === 'admin'): ?>
           <td>
-            <a href="<?=site_url('user/update/'.$student['id']);?>">Update</a>
-            <a href="<?=site_url('user/delete/'.$student['id']);?>">Delete</a>
+            <a href="<?=site_url('students/update/'.$student['id']);?>">Update</a>
+            <a href="<?=site_url('students/delete/'.$student['id']);?>">Delete</a>
           </td>
           <?php endif; ?>
         </tr>
@@ -259,7 +259,7 @@ $role = $_SESSION['role'] ?? null;
 
   <!-- ✅ Valorant-styled Create Record button (admin only) -->
   <?php if ($role === 'admin'): ?>
-    <a href="<?=site_url('user/create');?>" class="create-btn">+ Create Record</a>
+    <a href="<?=site_url('students/create');?>" class="create-btn">+ Create Record</a>
   <?php endif; ?>
 
   <!-- ✅ Logout button -->

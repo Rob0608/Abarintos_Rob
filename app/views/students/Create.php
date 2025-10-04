@@ -93,7 +93,7 @@ input[type="submit"]:hover {
   </style>
 </head>
 <body>
-  <form action="<?=site_url('user/create');?>" method="post">
+  <form action="<?=site_url('students/create');?>" method="post">
     <h1>Create User</h1>
     <input type="text" id="last_name" name="last_name" placeholder="Last Name" required>
     <input type="text" id="first_name" name="first_name" placeholder="First Name" required>
