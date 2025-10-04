@@ -82,7 +82,7 @@ public function dashboard()
         );
         $data['page'] = $this->pagination->paginate();
 
-        $this->call->view('students/index', $data);
+        $this->call->view('students/show', $data);
         
     $this->call->library('auth');
 
