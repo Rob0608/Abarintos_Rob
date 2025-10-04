@@ -36,7 +36,7 @@ class UserController extends Controller {
         $records_per_page = 5;
 
         $all = $this->UserModel->page($q, $records_per_page, $page);
-        $data['students'] = $all['records'];
+        $data['users'] = $all['records'];
         $total_rows = $all['total_rows'];
 
         // Pagination setup
@@ -62,10 +62,11 @@ class UserController extends Controller {
     public function create()
     {
         // ✅ Admin only
-        if ($_SESSION['role'] !== 'admin') {
-            redirect(site_url('/auth/dashboard'));
-            exit;
-        }
+        if (!$this->auth->has_role('admin')) {
+    redirect(site_url('/auth/dashboard'));
+    exit;
+}
+
 
         if ($this->io->method() == 'post') {
             $last_name = $this->io->post('last_name');
@@ -91,11 +92,11 @@ class UserController extends Controller {
     }
 
      function update($id) {
-    if ($_SESSION['role'] !== 'admin') {
-        // redirect regular users to the dashboard
-        redirect(site_url('/auth/dashboard'));
-        exit;
-    }
+    if (!$this->auth->has_role('admin')) {
+    redirect(site_url('/auth/dashboard'));
+    exit;
+}
+
 
     $student = $this->UserModel->find($id); // ✅ Use UserModel
     if(!$student) {
