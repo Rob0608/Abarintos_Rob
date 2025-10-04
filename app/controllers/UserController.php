@@ -82,7 +82,7 @@ class UserController extends Controller {
                 echo 'Error creating student.';
             }
         } else {
-            $this->call->view('create');
+            $this->call->view('students/create');
         }
     }
 
@@ -118,7 +118,7 @@ class UserController extends Controller {
             }
         } else {
             $data['student'] = $students;
-            $this->call->view('update', $data);
+            $this->call->view('students/update', $data);
         }
     }
      function delete($id){
