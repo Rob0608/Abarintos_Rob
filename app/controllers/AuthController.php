@@ -60,7 +60,7 @@ public function dashboard()
 
         $records_per_page = 5;
 
-        $all = $this->StudentsModel->page($q, $records_per_page, $page);
+        $all = $this->UserModel->page($q, $records_per_page, $page);
         $data['students'] = $all['records'];
         $total_rows = $all['total_rows'];
 
